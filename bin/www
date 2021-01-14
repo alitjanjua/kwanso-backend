@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-var app = require("../app");
+var app = require("../src/app");
 var debug = require("debug")("backend:server");
 var http = require("http");
+require("../src/database");
 
 /**
  * Get port from environment and store in Express.

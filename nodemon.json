@@ -1,0 +1,6 @@
+{
+  "watch": ["src", ".env"],
+  "ext": "js,json",
+  "ignore": ["src/**/*.spec.ts", ".git", "node_modules/**/node_modules"],
+  "exec": "node ./bin/www"
+}
