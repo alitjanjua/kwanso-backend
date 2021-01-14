@@ -5,13 +5,11 @@ module.exports = {
     const { name } = req.body;
     const { user } = res.locals;
     const newTask = await TaskModel.create({
-      task_name: name,
+      name: name,
       //   user: user._id,    // commenting for fe use
     });
     if (newTask)
-      res
-        .status(201)
-        .json({ task: { id: newTask._id, name: newTask.task_name } });
+      res.status(201).json({ task: { id: newTask._id, name: newTask.name } });
     else res.status(500).send("Unexpected error");
   },
 
