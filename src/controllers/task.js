@@ -1,5 +1,4 @@
 const TaskModel = require("../database/models/task");
-const { verifyToken } = require("../helpers/common");
 
 module.exports = {
   createTask: async (req, res) => {
@@ -7,7 +6,7 @@ module.exports = {
     const { user } = res.locals;
     const newTask = await TaskModel.create({
       task_name: name,
-      user: user._id,
+      //   user: user._id,    // commenting for fe use
     });
     if (newTask)
       res
@@ -19,9 +18,10 @@ module.exports = {
   getUserTasks: async (req, res) => {
     const { user } = res.locals;
     try {
-      const taskRecords = await TaskModel.find({ user: user._id });
+      //   const taskRecords = await TaskModel.find({ user: user._id });    // commenting for fe use
+      const taskRecords = await TaskModel.find({});
       if (!taskRecords) {
-        throw new Error("Tasks not found against this user in db! :(");
+        throw new Error("Error in getting tasksfrom db! :(");
       }
 
       return res.status(200).json({

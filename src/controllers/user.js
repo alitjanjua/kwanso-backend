@@ -24,7 +24,7 @@ module.exports = {
     try {
       const { email, password } = req.body;
       const userRecord = await UserModel.findOne({ email }).lean().exec();
-      if (!userRecord) res.status(500).send("Unexpected error");
+      if (!userRecord) res.status(404).send("user not found! :(");
 
       const isvalidPassword = await comparePasswords(
         password,

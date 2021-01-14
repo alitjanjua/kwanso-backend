@@ -5,7 +5,7 @@ const middlewares = require("../middlewares");
 
 var router = express.Router();
 
-router.use(middlewares.verifyToken, middlewares.attachUser);
+// router.use(middlewares.verifyToken, middlewares.attachUser);
 
 router.post("/create-task", taskController.createTask);
 

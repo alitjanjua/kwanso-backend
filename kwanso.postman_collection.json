@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "06632acf-d30d-4097-9523-e5576afcc020",
+		"name": "kwanso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ali@gmail.com\",\n    \"password\": \"alitahir123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ali@gmail.com\",\n    \"password\": \"alitahir123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDAwN2U3M2Y3NDhhOTZhNTAxODdiNDUiLCJleHAiOjE2MTU4MjkxMTEuMzc0LCJpYXQiOjE2MTA2NDUxMTF9.Vp_1xrU_j2DDRzQU0snMB-y0AWQWX7Xi7vKNki7nl4Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "create task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test task\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/task/create-task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"task",
+								"create-task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDAwNjZhMmJhZGRkMjQ3MDcyN2YxM2YiLCJleHAiOjE2MTU4Mjc4NTguNjk0LCJpYXQiOjE2MTA2NDM4NTh9.MEJ4RLRXbnw3IfB8QWVpVL5PRS7ofcumm8qsge-h3ac",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/task/list-tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"task",
+								"list-tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
