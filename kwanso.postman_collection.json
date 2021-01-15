@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ali@gmail.com\",\n    \"password\": \"alitahir123\"\n}",
+							"raw": "{\n    \"email\": \"ali1@gmail.com\",\n    \"password\": \"alitahir123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,15 +23,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/users/",
+							"raw": "http://localhost:4000/register",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"users",
-								""
+								"register"
 							]
 						}
 					},
@@ -52,14 +51,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/users/login",
+							"raw": "http://localhost:4000/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"users",
 								"login"
 							]
 						}
@@ -73,20 +71,19 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDAwN2U3M2Y3NDhhOTZhNTAxODdiNDUiLCJleHAiOjE2MTU4MjkxMTEuMzc0LCJpYXQiOjE2MTA2NDUxMTF9.Vp_1xrU_j2DDRzQU0snMB-y0AWQWX7Xi7vKNki7nl4Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDAxNTE3ZmJjMTkxNjZjZGI3MzEzODMiLCJleHAiOjE2MTU4ODM0NjguMTM1LCJpYXQiOjE2MTA2OTk0Njh9.RXBhu1O4tLgh9_O43ccclDW3NuERYTsyL1cQXvpAT_w",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:4000/users/",
+							"raw": "http://localhost:4000/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"users",
-								""
+								"user"
 							]
 						}
 					},
@@ -118,14 +115,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/task/create-task",
+							"raw": "http://localhost:4000/create-task",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"task",
 								"create-task"
 							]
 						}
@@ -144,14 +140,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:4000/task/list-tasks",
+							"raw": "http://localhost:4000/list-tasks",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"task",
 								"list-tasks"
 							]
 						}

@@ -9,20 +9,31 @@ const {
 module.exports = {
   addUser: async (req, res) => {
     const { email, password } = req.body;
-    const hashedPassword = await hashPassword(password);
-    const newUser = await UserModel.create({
-      id: 1,
-      email,
-      password: hashedPassword,
-    });
-    if (newUser)
-      res.status(201).json({ user: { id: newUser.id, email: newUser.email } });
-    else res.status(500).send("Unexpected error");
+    try {
+      if (!email || !password) {
+        throw new Error("Email or Passward is missing");
+      }
+      const hashedPassword = await hashPassword(password);
+      const newUser = await UserModel.create({
+        email,
+        password: hashedPassword,
+      });
+      if (newUser)
+        res
+          .status(201)
+          .json({ user: { id: newUser._id, email: newUser.email } });
+      else throw new Error("Unexpected error");
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
   },
 
   login: async (req, res) => {
+    const { email, password } = req.body;
     try {
-      const { email, password } = req.body;
+      if (!email || !password) {
+        throw new Error("Email or Passward is missing");
+      }
       const userRecord = await UserModel.findOne({ email }).lean().exec();
       if (!userRecord) res.status(404).send("user not found! :(");
 
@@ -52,11 +63,10 @@ module.exports = {
 
         return res
           .status(200)
-          .json({ user: { id: userRecord.id, email: userRecord.email } });
+          .json({ user: { id: userRecord._id, email: userRecord.email } });
       } else {
         throw new Error("Invalid Token");
       }
-      res.status(200).send("get a user");
     } catch (e) {
       res.status(500).json(e.message);
     }

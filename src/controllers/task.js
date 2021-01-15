@@ -4,13 +4,20 @@ module.exports = {
   createTask: async (req, res) => {
     const { name } = req.body;
     const { user } = res.locals;
-    const newTask = await TaskModel.create({
-      name: name,
-      //   user: user._id,    // commenting for fe use
-    });
-    if (newTask)
-      res.status(201).json({ task: { id: newTask._id, name: newTask.name } });
-    else res.status(500).send("Unexpected error");
+    try {
+      if (!name) {
+        throw new Error("Task name is missing");
+      }
+      const newTask = await TaskModel.create({
+        name: name,
+        //   user: user._id,    // commenting for fe use
+      });
+      if (newTask)
+        res.status(201).json({ task: { id: newTask._id, name: newTask.name } });
+      else throw new Error("Unexpected error");
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
   },
 
   getUserTasks: async (req, res) => {
